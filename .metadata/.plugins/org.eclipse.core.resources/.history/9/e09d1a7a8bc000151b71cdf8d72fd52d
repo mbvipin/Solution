@@ -1,0 +1,11 @@
+package org.sei.test;
+
+public class DeDup {
+
+    public int[] randomIntegers = {1,2,34,34,25,1,45,3,26,85,4,34,86,25,43,2,1,10000,11,16,19,1,18,4,9,3};
+    public static void main(String [] args) {
+
+	
+    }
+
+}

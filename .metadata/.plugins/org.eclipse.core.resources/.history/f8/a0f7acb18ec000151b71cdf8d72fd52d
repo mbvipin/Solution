@@ -1,0 +1,33 @@
+package org.sei.test;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+public class DeDup {
+
+	private static int[] randomArray = { 1,1, 3, 1, 5, 3, 6, 7 };
+
+	public static void main(String[] args) {
+
+		sortAndRemove(randomArray);
+	}
+
+	private static int[] sortAndRemove(int[] randomArray) {
+
+		
+		Arrays.sort(randomArray);
+
+		int temp = 0;
+		for (int i = 0; i < randomArray.length; i++) {
+			if (temp == randomArray[i])
+			{
+				
+				continue;
+			}
+			System.out.println(randomArray[i]);
+			temp = randomArray[i];
+		}
+	}
+
+}

@@ -1,0 +1,51 @@
+package org.sei.test;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+public class DeDup {
+
+	private static int[] randomArray = { 24,22,24,24,30,50,32};
+
+	public static void main(String[] args) {
+
+		sortAndRemove(randomArray);
+		
+		Set<Integer> integerSet=new HashSet<Integer>();
+		
+		for(int i=0; i<randomArray.length; i++)
+		{
+			integerSet.add(randomArray[i]);
+		}
+		
+		Iterator it=integerSet.iterator();
+		
+		while(it.hasNext())
+		{
+			//System.out.println(it.next());
+		}
+	}
+
+	private static int [] sortAndRemove(int[] randomArray) {
+
+		int [] returnArray=new int[100];
+		Arrays.sort(randomArray);
+
+		int temp = 0;
+		int j=0;
+		for (int i = 0; i < randomArray.length; i++) {
+			if (temp == randomArray[i])
+			{
+				continue;
+			}
+			returnArray[++j]=randomArray[i];
+			System.out.println(randomArray[i]);
+			temp = randomArray[i];
+		}
+		
+		return returnArray;
+	}
+
+}

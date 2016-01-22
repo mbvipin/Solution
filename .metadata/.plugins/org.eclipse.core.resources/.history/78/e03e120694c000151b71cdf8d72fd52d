@@ -1,0 +1,95 @@
+package org.sei.test;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class DeDup {
+
+	private static int[] randomArray = { 24,22,24,24,30,50,32};
+
+	public static void main(String[] args) {
+
+		int [] resultArray1=sortAndRemove(randomArray);
+		int [] resultArray2=removeUsingHashSet(randomArray);
+		
+		System.out.println("After sort method");
+		printArray(resultArray1);
+		System.out.println("After Hashset Method");
+		printArray(resultArray2);
+		
+		
+	}
+
+	private static int [] sortAndRemove(int[] randomArray) {
+
+		int [] returnArray=new int[7];
+		Arrays.sort(randomArray);
+
+		int temp = 0;
+		int j=0;
+		for (int i = 0; i < randomArray.length; i++) {
+			if (temp == randomArray[i])
+			{
+				continue;
+			}
+			returnArray[++j]=randomArray[i];
+			temp = randomArray[i];
+		}
+		
+		return returnArray;
+	}
+	
+	private static int [] removeUsingHashSet(int [] randomArray){
+		
+		int [] returnArray=new int[7];
+        Set<Integer> integerSet=new HashSet<Integer>();
+		
+		for(int i=0; i<randomArray.length; i++)
+		{
+			integerSet.add(randomArray[i]);
+		}
+		
+		Iterator<Integer> it=integerSet.iterator();
+		
+		int j=0;
+		while(it.hasNext())
+		{
+			returnArray[++j]=it.next();
+		}
+		
+		return returnArray;
+	}
+	
+	private static int [] removeUsingLinkedHashSet(int [] randomArray){
+		
+		int [] returnArray=new int[7];
+        Set<Integer> integerSet=new LinkedHashSet<Integer>();
+		
+		for(int i=0; i<randomArray.length; i++)
+		{
+			integerSet.add(randomArray[i]);
+		}
+		
+		Iterator<Integer> it=integerSet.iterator();
+		
+		int j=0;
+		while(it.hasNext())
+		{
+			returnArray[++j]=it.next();
+		}
+		
+		return returnArray;
+	}
+	
+	private static void printArray(int [] randomArray){
+		
+		for (int i=0; i<randomArray.length; i++)
+		{
+			System.out.println(randomArray[i]);
+		}
+	}
+
+}
